@@ -4,7 +4,7 @@ import { Photo } from "../types/photo";
 const Photos: FunctionComponent<{ photos: Photo[] }> = ({ photos }) => {
   return (
     <section className="overflow-hidden text-gray-700">
-      <div className="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
+      <div className="px-5 py-2 mx-auto lg:pt-10 lg:px-20">
         <div className="flex flex-wrap -m-1 md:-m-2">
           <div className="flex flex-wrap">
             {photos.map((photo) => (

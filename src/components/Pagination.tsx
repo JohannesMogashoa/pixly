@@ -7,38 +7,34 @@ const Pagination: FunctionComponent<{
   paginate: Function;
 }> = ({ photos_per_page, total_photos, current_page, paginate }) => {
   return (
-    <div className="py-2">
-      <div>
-        <p className="text-sm text-gray-700">
-          Showing
-          <span className="font-medium"> {current_page} </span>
-          of
-          <span className="font-medium"> {total_photos} </span>
-          results
-        </p>
-      </div>
-      <nav className="block"></nav>
+    <div className="px-5 py-2 mx-auto lg:py-10 lg:px-20">
       <div>
         <nav
-          className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"
+          className="flex justify-between items-center rounded-md"
           aria-label="Pagination"
         >
           <button
             onClick={() => {
               paginate("prev");
             }}
-            className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+            className="px-3 py-2 rounded-full border border-gray-300 bg-white text-md font-medium text-gray-500 hover:bg-gray-200"
           >
-            <span>Previous</span>
+            <span>&larr;</span>
           </button>
-
+          <p className="text-sm text-gray-700">
+            Showing
+            <span className="font-medium"> {current_page} </span>
+            of
+            <span className="font-medium"> {total_photos} </span>
+            results
+          </p>
           <button
             onClick={() => {
               paginate("next");
             }}
-            className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+            className="px-3 py-2 rounded-full border border-gray-300 bg-white text-md font-medium text-gray-500 hover:bg-gray-200"
           >
-            <span>Next</span>
+            <span>&rarr;</span>
           </button>
         </nav>
       </div>

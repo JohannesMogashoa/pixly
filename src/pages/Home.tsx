@@ -8,15 +8,10 @@ const Home = () => {
   const { per_page, total_pages, photos, loading } = useFetch(current_page);
 
   const paginate = (action: string) => {
-    switch (action) {
-      case "prev":
-        setCurrentPage(current_page - 1);
-        break;
-      case "next":
-        setCurrentPage(current_page + 1);
-        break;
-      default:
-        break;
+    if (action === "prev" && current_page > 0) {
+      setCurrentPage(current_page - 1);
+    } else if (action === "next" && current_page < total_pages) {
+      setCurrentPage(current_page + 1);
     }
   };
 
