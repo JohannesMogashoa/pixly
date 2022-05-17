@@ -11,15 +11,7 @@ const Pagination: FunctionComponent<{
       <div>
         <p className="text-sm text-gray-700">
           Showing
-          <span className="font-medium">
-            {" "}
-            {current_page * photos_per_page - 10}{" "}
-          </span>
-          to
-          <span className="font-medium">
-            {" "}
-            {current_page * photos_per_page}{" "}
-          </span>
+          <span className="font-medium"> {current_page} </span>
           of
           <span className="font-medium"> {total_photos} </span>
           results

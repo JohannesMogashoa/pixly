@@ -25,3 +25,9 @@ export type Photo = {
     fullHDURL: string;
     imageURL: string;
 }
+
+export type ApiResponse = {
+    total: number;
+    totalHits: number;
+    hits: Photo[];
+}

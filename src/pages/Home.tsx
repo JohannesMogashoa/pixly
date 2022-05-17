@@ -1,13 +1,11 @@
 import { useState } from "react";
-import { Photo } from "../types/photo";
-import Photos from "../components/Photos";
-import data from "../data.json";
 import Pagination from "../components/Pagination";
+import Photos from "../components/Photos";
+import useFetch from "../utils/useFetch";
 
 const Home = () => {
-  const [photos, setPhotos] = useState<Photo[]>(data.hits);
   const [current_page, setCurrentPage] = useState(1);
-  const [per_page] = useState(20);
+  const { per_page, total_pages, photos, loading } = useFetch(current_page);
 
   const paginate = (action: string) => {
     switch (action) {
@@ -17,18 +15,19 @@ const Home = () => {
       case "next":
         setCurrentPage(current_page + 1);
         break;
-
       default:
         break;
     }
   };
+
+  if (loading) return <p>Loading...</p>;
 
   return (
     <>
       <Photos photos={photos} />
       <Pagination
         photos_per_page={per_page}
-        total_photos={data.totalHits}
+        total_photos={total_pages}
         current_page={current_page}
         paginate={paginate}
       />
