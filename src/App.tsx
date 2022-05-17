@@ -6,7 +6,7 @@ import PhotoDetail from "./pages/PhotoDetail";
 
 const App = () => {
   return (
-    <main className="w-screen bg-slate-100 min-h-screen">
+    <main className="max-w-screen overflow-hidden bg-slate-100 min-h-screen">
       <section className="max-w-5xl mx-auto">
         <Navbar />
         <Routes>

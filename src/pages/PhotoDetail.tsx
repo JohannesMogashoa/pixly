@@ -25,23 +25,25 @@ const PhotoDetail = () => {
   return (
     <>
       {photo && (
-        <section className="flex space-x-5 py-16 items-center">
-          <div className="w-2/3">
+        <section className="flex flex-col items-center px-5 py-8 space-x-5 md:py-16 md:flex-row">
+          <div className="w-full md:w-2/3">
             <img
               alt={photo.tags}
               key={photo.id}
               className="block object-cover object-center w-full h-full rounded-lg"
+              width={photo.imageWidth / 2}
+              height={photo.imageHeight / 2}
               src={photo.largeImageURL}
             />
           </div>
-          <div className="w-1/3">
-            <div className="flex items-center space-x-5 mb-4">
+          <div className="w-full mt-5 md:mt-0 md:w-1/3">
+            <div className="flex items-center mb-4 space-x-5">
               <img
-                className="rounded-full w-1/6"
+                className="rounded-full w-[50px] md:w-1/6"
                 src={!photo.userImageURL ? DefaultImage : photo.userImageURL}
                 alt={photo.user}
               />
-              <span className="text-2xl text-gray-500 font-semibold">
+              <span className="text-2xl font-semibold text-gray-500">
                 {photo.user}
               </span>
             </div>
@@ -49,7 +51,7 @@ const PhotoDetail = () => {
             {photo.tags.split(",").map((tag) => (
               <span
                 key={tag}
-                className="bg-gray-600 text-white text-sm mr-3 py-1 px-2 rounded-full inline-block mb-5"
+                className="inline-block px-2 py-1 mb-5 mr-3 text-sm text-white bg-gray-600 rounded-full"
               >
                 {tag.trim()}
               </span>
@@ -65,7 +67,7 @@ const PhotoDetail = () => {
               href={photo.pageURL}
               target="_blank"
               rel="noreferrer"
-              className="bg-slate-600 text-white py-3 px-5 rounded-full mt-3 inline-block"
+              className="inline-block px-5 py-3 mt-3 text-white rounded-full bg-slate-600"
             >
               View on Pixabay
             </a>

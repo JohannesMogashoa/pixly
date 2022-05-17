@@ -9,7 +9,7 @@ const Photos: FunctionComponent<{ photos: Photo[] }> = ({ photos }) => {
         <div className="flex flex-wrap -m-1 md:-m-2">
           <div className="flex flex-wrap">
             {photos.map((photo) => (
-              <div className="w-1/4 p-1 md:p-2 cursor-pointer">
+              <div className="p-1 cursor-pointer md:w-1/4 md:p-2">
                 <Link to={`/photo/${photo.id}`}>
                   <img
                     alt={photo.tags}
