@@ -1,11 +1,10 @@
 import React, { FunctionComponent } from "react";
 
 const Pagination: FunctionComponent<{
-  photos_per_page: number;
   total_photos: number;
   current_page: number;
   paginate: Function;
-}> = ({ photos_per_page, total_photos, current_page, paginate }) => {
+}> = ({ total_photos, current_page, paginate }) => {
   return (
     <div className="px-5 py-2 mx-auto lg:py-10 lg:px-20">
       <div>

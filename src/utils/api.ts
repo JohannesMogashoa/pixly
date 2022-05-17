@@ -1,12 +1,19 @@
-import { ApiResponse, Photo } from "../types/photo";
-import data from "../data.json";
 import axios from "axios";
+import data from "../data.json";
+import { ApiResponse, Photo } from "../types/photo";
 
 export const getPhotos = async (page_number: number, per_page: number): Promise<{ data: ApiResponse, status: number }> => {
     const { data, status } = await axios.get(
         `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&page=${page_number}&per_page=${per_page}`
     );
     return { data, status };
+}
+
+export const getPhoto = async (id: number): Promise<Photo> => {
+    const { data } = await axios.get(
+        `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&id=${id}`
+    );
+    return data.hits[0];
 }
 
 export const getMockPhotos = async (page_number: number): Promise<Photo[]> => {

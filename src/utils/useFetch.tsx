@@ -23,7 +23,6 @@ const useFetch = (page_number: number) => {
   }, [page_number, per_page]);
 
   return {
-    per_page,
     total_pages,
     photos,
     loading,
